@@ -1,0 +1,273 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Java Day1 | Gridea</title>
+<link rel="shortcut icon" href="https://Love-Camille.github.io/favicon.ico?v=1717856474194">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Love-Camille.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Java Day1 | Gridea - Atom Feed" href="https://Love-Camille.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="1.一些基本的语法
+public class Main{
+     public static void main(String[] args){
+         System.out.println(&quot;hello world&..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Love-Camille.github.io">
+  <img class="avatar" src="https://Love-Camille.github.io/images/avatar.png?v=1717856474194" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    存放我的学习笔记
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="https://Love-Camille.github.io/post/readme" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Java Day1
+            </h2>
+            <div class="post-info">
+              <span>
+                2024-05-25
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="1一些基本的语法">1.一些基本的语法</h2>
+<pre><code class="language-java">public class Main{
+     public static void main(String[] args){
+         System.out.println(&quot;hello world&quot;);
+     }
+}
+</code></pre>
+<p>java的语法感觉和C语言还是有很多相似之处的，由于之前学过C语言，所以java上手起来感觉并不困难</p>
+<p>(1)<strong>条件判断</strong></p>
+<pre><code>if(判断条件) 执行语句;
+</code></pre>
+<p>如果是这种样式，只能执行一句，因此要用{}涵盖一个代码块</p>
+<pre><code>if (条件判断){
+	执行语句;
+}
+</code></pre>
+<p>(2)<strong>循环语句</strong></p>
+<ul>
+<li>
+<p>for 循环</p>
+<pre><code>for (int a=1;a&lt;10;a++){
+	...;
+}
+</code></pre>
+</li>
+<li>
+<p>while循环</p>
+<pre><code>while (布尔表达式){
+	执行语句;
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="面向对象">面向对象</h2>
+<ul>
+<li>
+<p>初始化成员变量</p>
+<pre><code class="language-java">public class Person{
+	String name;
+	int age;
+	String sex;
+}
+</code></pre>
+</li>
+<li>
+<p>实例化对象 new</p>
+<pre><code class="language-java">public class Main{
+     public static void main(String[] args){
+         Person person = new Person();
+     }
+}
+</code></pre>
+</li>
+<li>
+<p>创建类方法</p>
+<pre><code class="language-java">public class Person{
+	String name;
+	int age;
+	String sex;
+	
+	int sum(int a, int b){
+		return a+b;
+	}
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="最重要的一点传递值还是传递引用">最重要的一点：传递值还是传递引用</h2>
+<ul>
+<li>值传递</li>
+</ul>
+<p>如果传入了两个值，在函数体内部处理的时候，会先把这两个值复制一遍，然后在函数体内部进行操作，也就是说，其实你值本身是没有经过修改的</p>
+<pre><code class="language-java">void swap(int a, int b){
+	tmp = a;
+	a = b;
+	b = tmp;
+}
+int a = 10;
+int b = 5;
+</code></pre>
+<p>这样的话a,b的值不会直接被改变，因为所有的操作都是在复制后的值上进行操作的</p>
+<ul>
+<li>引用传递（类似地址传递）</li>
+</ul>
+<p>我们在创建对象实例的时候，new方法会生成一个对象引用</p>
+<pre><code class="language-java">Person p1 = new Person();
+</code></pre>
+<p>也就是说，这里的p1保存的是对象的引用，而不是对象的实体本身，可以近似理解为，它保存的是一个指针</p>
+<pre><code class="language-java">void rename(Person person){
+	person.name = &quot;renamed name&quot;
+}
+
+Person person = new Person();
+person.rename()
+System.out.println(person.name)
+</code></pre>
+<p>打印之后可以发现person.name是被修改了的，因为传递进来的实参是一个对象的引用，而非普通的值，所以其实是直接对对象进行操作的，因此name会被修改。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%AF%AD%E6%B3%95">1.一些基本的语法</a></li>
+<li><a href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">面向对象</a></li>
+<li><a href="#%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%B8%80%E7%82%B9%E4%BC%A0%E9%80%92%E5%80%BC%E8%BF%98%E6%98%AF%E4%BC%A0%E9%80%92%E5%BC%95%E7%94%A8">最重要的一点：传递值还是传递引用</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Love-Camille.github.io/post/readme/">
+              <h3 class="post-title">
+                README
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://Love-Camille.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

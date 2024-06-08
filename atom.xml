@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Love-Camille.github.io</id>
+    <title>Gridea</title>
+    <updated>2024-06-08T14:21:19.653Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Love-Camille.github.io"/>
+    <link rel="self" href="https://Love-Camille.github.io/atom.xml"/>
+    <subtitle>存放我的学习笔记</subtitle>
+    <logo>https://Love-Camille.github.io/images/avatar.png</logo>
+    <icon>https://Love-Camille.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Java Day1]]></title>
+        <id>https://Love-Camille.github.io/post/java-day1/</id>
+        <link href="https://Love-Camille.github.io/post/java-day1/">
+        </link>
+        <updated>2024-05-25T07:32:56.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1一些基本的语法">1.一些基本的语法</h2>
+<pre><code class="language-java">public class Main{
+     public static void main(String[] args){
+         System.out.println(&quot;hello world&quot;);
+     }
+}
+</code></pre>
+<p>java的语法感觉和C语言还是有很多相似之处的，由于之前学过C语言，所以java上手起来感觉并不困难</p>
+<p>(1)<strong>条件判断</strong></p>
+<pre><code>if(判断条件) 执行语句;
+</code></pre>
+<p>如果是这种样式，只能执行一句，因此要用{}涵盖一个代码块</p>
+<pre><code>if (条件判断){
+	执行语句;
+}
+</code></pre>
+<p>(2)<strong>循环语句</strong></p>
+<ul>
+<li>
+<p>for 循环</p>
+<pre><code>for (int a=1;a&lt;10;a++){
+	...;
+}
+</code></pre>
+</li>
+<li>
+<p>while循环</p>
+<pre><code>while (布尔表达式){
+	执行语句;
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="面向对象">面向对象</h2>
+<ul>
+<li>
+<p>初始化成员变量</p>
+<pre><code class="language-java">public class Person{
+	String name;
+	int age;
+	String sex;
+}
+</code></pre>
+</li>
+<li>
+<p>实例化对象 new</p>
+<pre><code class="language-java">public class Main{
+     public static void main(String[] args){
+         Person person = new Person();
+     }
+}
+</code></pre>
+</li>
+<li>
+<p>创建类方法</p>
+<pre><code class="language-java">public class Person{
+	String name;
+	int age;
+	String sex;
+	
+	int sum(int a, int b){
+		return a+b;
+	}
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="最重要的一点传递值还是传递引用">最重要的一点：传递值还是传递引用</h2>
+<ul>
+<li>值传递</li>
+</ul>
+<p>如果传入了两个值，在函数体内部处理的时候，会先把这两个值复制一遍，然后在函数体内部进行操作，也就是说，其实你值本身是没有经过修改的</p>
+<pre><code class="language-java">void swap(int a, int b){
+	tmp = a;
+	a = b;
+	b = tmp;
+}
+int a = 10;
+int b = 5;
+</code></pre>
+<p>这样的话a,b的值不会直接被改变，因为所有的操作都是在复制后的值上进行操作的</p>
+<ul>
+<li>引用传递（类似地址传递）</li>
+</ul>
+<p>我们在创建对象实例的时候，new方法会生成一个对象引用</p>
+<pre><code class="language-java">Person p1 = new Person();
+</code></pre>
+<p>也就是说，这里的p1保存的是对象的引用，而不是对象的实体本身，可以近似理解为，它保存的是一个指针</p>
+<pre><code class="language-java">void rename(Person person){
+	person.name = &quot;renamed name&quot;
+}
+
+Person person = new Person();
+person.rename()
+System.out.println(person.name)
+</code></pre>
+<p>打印之后可以发现person.name是被修改了的，因为传递进来的实参是一个对象的引用，而非普通的值，所以其实是直接对对象进行操作的，因此name会被修改。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[README]]></title>
+        <id>https://Love-Camille.github.io/post/readme/</id>
+        <link href="https://Love-Camille.github.io/post/readme/">
+        </link>
+        <updated>2024-04-20T08:55:45.000Z</updated>
+        <content type="html"><![CDATA[<p>2024.4.20</p>
+<p>&emsp;&emsp;出于某种巧合，我打算开始更新这个个人的笔记Blog，以此来记录自己每天所学的东西
+<p>&emsp;&emsp;本人现在就读于某985，研二，是一个导师放养的弱鸡。我的本科阶段可以说过得一塌糊涂，非常的糟糕。要是回忆起本科，我想我仅仅只会怀念起我的几位挚友，如果没有他们的帮助，我现在肯定不会坐在这里敲下这些文字。
+<p>&emsp;&emsp;在本科的时候我的成绩是班级倒数第一，每天都在打游戏，几天前看了下LOL游戏时长，小号都有一千多个小时哈哈哈。其实我也不是没想过要好好学习 ，如果有可能的话，谁不想成为好学生呢？大二的时候，学校课表里有数据库、Java、python数据挖掘等课程，我知道代码能力对我们这个专业是非常重要的（虽然并非纯计算机），那时候我是很想好好学的。可是先前落下了很多基础，也没有什么有经验的过来人教我，因此自己摸索得十分痛苦。那会儿我对于学习计算机知识的概念还停留在，买一本书，对着代码一行一行敲，敲完了什么都忘了，甚至连github都不知道。
+<p>&emsp;&emsp;有些事情我一直记得甚清晰：（1）我分不清pycharm和anaconda，明明两个都能写代码（conda里面有jupyter notebook） （2）被隔离的期间，在酒店里一个人手推公式。
+<p>&emsp;&emsp;对于第一件事，我记得在某次体育课下课，我是去问了班里一位代码能力很强后来还出国了的同学的，然而得到的回复让我感觉对方并不希望我明白这二者到底有什么区别（至今想来仍是这样）。现在来看这个事情其实很好解释的，pycharm就是个写代码和debug的本子，conda是一个管理你写代码让你写得更舒服的工具箱，就完事儿了。诸如此类的事情还有很多，我也因为成绩太差经常划水导致每次小组作业都无人收留，有时我的好友们会捞我一把。我也不想划水...只是之前落下的知识太多了，我真的啥也学不会，那会儿我只是想，有一天混一天，将来在哪里？我也不知道。每次小组作业的时候我都很难堪，那么多次小组作业能脸皮厚地撑过来真的是个奇迹。
+<p>&emsp;&emsp;对第二件事，那个时候我已经考上研究生了。那可能是我过得最开心的一个学期，从自尊心的角度上说，我是把前几年的自尊全找回来了，我觉得自己可以不害怕任何人的眼光面对他们。对于我这样一个学渣来说，考研的历程实在是曲折，而且考的还是头部985。我的两位挚友在我的考研期间给予了我莫大的支持，和他们在一起复习的日子里我觉得考研似乎也没有那么辛苦了，每一天我都充满活力，感到非常开心。他们无私地将自己所有的知识全部传授给我，在我难以坚持下去的时候也鼓励我，告诉我一定可以上岸。几年后我依然可以梦到与他们一起复习考研的日子，每次梦到也都是开心的，没有考研的焦虑。似乎扯远了，那时候我被隔离了，因为发烧了，但是被隔离后第二天我就退烧了，然而因为事发仓促，我手边啥也没有，只有一台没有鼠标的电脑，和一本西瓜书，还有一沓草稿纸，一支笔。那一周里由于没有鼠标（其实网络也很差，基本没网），我就没法打游戏，感觉一下子过上了原始人的生活。迫于无奈我手推了一星期的公式，从线性回归，支持向量机，到什么梯度下降反向传播，全给推了一遍.......隔离结束后感觉自己有种神功大成的感觉（并不，其实还是弱鸡，但却是比之前强了一些）。那时我才意识到我还是能学明白一些东西的。
+<p>&emsp;&emsp;好像又太发散了，读了研的我研一不出意外的啥也没搞出来。老师啥也不会，一个所谓的某重点实验室一张显卡都没有，跑个屁的数据，老师给你改论文？No。改论文就是改格式？Yes！研究方向？自己找去。研一全在做纯理论，当时感觉这些论文，全在吹水，那我也能吹。哈哈 ，我还是太年轻了，中文期刊，懂得都懂，并不是人家能这么写，你就也能这么写的。
+<p>&emsp;&emsp;从去年11月开始，我开始重回深度学习的坑，彼时的我虽然会推公式，但是我特么不会写代码啊...从ResNet开始学，代码能力一直仅限于用别人的模型跑自己的数据集这个程度。到今年4月我还是这个水平，从完全不会到会写一点（也要感谢我高中同学现在同校计算机系的帮助），走了很多弯路。直到前阵子，突然发现有通义灵码这么个玩意（村里才通网，我现在才知道），感觉打开了新世界的大门，这才是我真正的导师啊！！！于是和AI狂学，几天时间终于能从零手搓一个模型了。
+<p>&emsp;&emsp;我想自己走过了太多弯路，到现在我还是个小白水平，如果本科阶段的你看到了这篇文章，那你已经赢我太多了（因为你居然知道github！）我想把一些知识整理出来，方便自己复习，也是方便大家一起学习！所以，Let's Build From Here！
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[装饰器]]></title>
+        <id>https://Love-Camille.github.io/post/zhuang-shi-qi/</id>
+        <link href="https://Love-Camille.github.io/post/zhuang-shi-qi/">
+        </link>
+        <updated>2024-04-20T02:52:18.000Z</updated>
+        <content type="html"><![CDATA[<h1>装饰器以及@property</h1>
+<p>装饰器本质是是一种高阶函数，或者可以理解为对原来函数的扩展，当一个函数使用了装饰器之后，可以在不改变原函数代码的情况下为其添加额外的功能。
+<p>@property装饰器可以把一个方法变成一种属性，简而言之就是不用再()来调用，而是可以直接.xxx
+<p>不使用装饰器的情况</p>
+<figure data-type="image" tabindex="1"><img src="https://Love-Camille.github.io/post-images/1713586442437.png" alt="" loading="lazy"></figure>
+<p>使用装饰器的情况<br>
+<img src="https://Love-Camille.github.io/post-images/1713586477954.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+</feed>
